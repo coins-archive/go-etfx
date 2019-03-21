@@ -606,14 +606,25 @@ var (
 // reward. The total reward consists of the static block reward and rewards for
 // included uncles. The coinbase of each uncle block is also rewarded.
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
-	// Select the correct block reward based on chain progression
-	blockReward := FrontierBlockReward
-	if config.IsByzantium(header.Number) {
-		blockReward = ByzantiumBlockReward
+	currentBlock := header.Number
+
+	currentBlockModifier := big.NewInt(0)
+	currentBlockModifier.Div(currentBlock, big.NewInt(5e+6))
+
+	currentBlockReward := big.NewInt(10)
+
+	currentBlockReward.Sub(currentBlockReward, currentBlockModifier)
+	if currentBlockReward.Cmp(big.NewInt(0)) < 0 {
+		currentBlockReward = big.NewInt(0)
 	}
-	if config.IsConstantinople(header.Number) {
-		blockReward = ConstantinopleBlockReward
-	}
+	currentBlockReward.Mul(currentBlockReward, big.NewInt(1e+18))
+
+	baseBlockReward := big.NewInt(10)
+	baseBlockReward.Mul(baseBlockReward, big.NewInt(1e+18))
+
+	blockReward := big.NewInt(0)
+	blockReward.Add(currentBlockReward, baseBlockReward)
+
 	// Accumulate the rewards for the miner and any included uncles
 	reward := new(big.Int).Set(blockReward)
 	r := new(big.Int)
