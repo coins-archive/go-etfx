@@ -16,7 +16,7 @@
 
 // Contains all the wrappers from the params package.
 
-package geth
+package getfx
 
 import (
 	"encoding/json"
@@ -35,15 +35,6 @@ func MainnetGenesis() string {
 // TestnetGenesis returns the JSON spec to use for the Ethereum test network.
 func TestnetGenesis() string {
 	enc, err := json.Marshal(core.DefaultTestnetGenesisBlock())
-	if err != nil {
-		panic(err)
-	}
-	return string(enc)
-}
-
-// RinkebyGenesis returns the JSON spec to use for the Rinkeby test network
-func RinkebyGenesis() string {
-	enc, err := json.Marshal(core.DefaultRinkebyGenesisBlock())
 	if err != nil {
 		panic(err)
 	}
