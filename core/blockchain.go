@@ -23,6 +23,8 @@ import (
 	"io"
 	"math/big"
 	mrand "math/rand"
+	"sort"
+	"strconv"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -1080,6 +1082,141 @@ func (bc *BlockChain) addFutureBlock(block *types.Block) error {
 	return nil
 }
 
+// PIRL GUARD IMPLEMENTATION
+// -----------------
+
+var syncStatus bool
+
+func (bc *BlockChain) checkChainForAttack(blocks types.Blocks) error {
+	// Copyright 2014 The go-ethereum Authors
+	// Copyright 2018 Pirl Sprl
+	// This file is part of the go-ethereum library modified with Pirl Security Protocol.
+	//
+	// The go-ethereum library is free software: you can redistribute it and/or modify
+	// it under the terms of the GNU Lesser General Public License as published by
+	// the Free Software Foundation, either version 3 of the License, or
+	// (at your option) any later version.
+	//
+	// The go-ethereum library is distributed in the hope that it will be useful,
+	// but WITHOUT ANY WARRANTY; without even the implied warranty of
+	// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	// GNU Lesser General Public License for more details.
+	//
+	// You should have received a copy of the GNU Lesser General Public License
+	// along with the go-ethereum library. If not, see http://www.gnu.org/licenses/.
+	// Package core implements the Ethereum consensus protocol modified with Pirl Security Protocol.
+
+	err := errors.New("")
+	err = nil
+	timeMap := make(map[uint64]int64)
+	tipOfTheMainChain := bc.CurrentBlock().NumberU64()
+
+	if !syncStatus {
+		if tipOfTheMainChain < blocks[0].NumberU64() {
+			syncStatus = true
+		} else {
+			syncStatus = false
+		}
+	}
+
+	if syncStatus && len(blocks) > int(params.TimeCapsuleLength) {
+		for _, b := range blocks {
+			timeMap[b.NumberU64()] = calculatePenaltyTimeForBlock(tipOfTheMainChain, b.NumberU64())
+		}
+	}
+	p := make(PairList, len(timeMap))
+	index := 0
+	for k, v := range timeMap {
+		p[index] = Pair{k, v}
+		index++
+	}
+	sort.Sort(p)
+
+	multi := calculateMulti(bc.CurrentBlock().Difficulty().Uint64())
+
+	var penalty int64
+	for _, v := range p {
+		block_multi := multi
+		if v.Value < 0 {
+			block_multi = 1
+		}
+		penalty += v.Value * int64(block_multi)
+	}
+
+	if penalty < 0 {
+		penalty = 0
+	}
+
+	context := []interface{}{
+		"synced", syncStatus, "number", tipOfTheMainChain, "incoming_number", blocks[0].NumberU64() - 1, "penalty", penalty, "implementation", "Pirl for $ETFX",
+	}
+
+	log.Info("checking legitimity of the chain", context...)
+
+	if penalty > 0 {
+		context := []interface{}{
+			"penalty", penalty,
+		}
+		log.Error("Chain is a malicious and we should reject it", context...)
+		log.Error("Total penalty: " + strconv.FormatInt(penalty, 10))
+		err = ErrDelayTooHigh
+	}
+
+	if penalty == 0 {
+		err = nil
+	}
+
+	return err
+}
+
+func calculatePenaltyTimeForBlock(tipOfTheMainChain, incomingBlock uint64) int64 {
+	if incomingBlock < tipOfTheMainChain {
+		return int64(tipOfTheMainChain - incomingBlock)
+	}
+	if incomingBlock == tipOfTheMainChain {
+		return 0
+	}
+	if incomingBlock > tipOfTheMainChain {
+		return -1
+	}
+	return 0
+}
+
+func calculateMulti(diff uint64) uint64 {
+
+	if diff <= 500000000 {
+		return 5
+	}
+	if diff >= 500000000 && diff < 20000000000 {
+		return 4
+	}
+	if diff >= 20000000000 && diff < 30000000000 {
+		return 3
+	}
+	if diff >= 30000000000 && diff < 50000000000 {
+		return 2
+	}
+	if diff >= 50000000000 {
+		return 1
+	}
+	return 1
+}
+
+// Pair : A data structure to hold key/value pairs
+type Pair struct {
+	Key   uint64
+	Value int64
+}
+
+// PairList : A slice of pairs that implements sort. Interface to sort by values
+type PairList []Pair
+
+func (p PairList) Len() int           { return len(p) }
+func (p PairList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p PairList) Less(i, j int) bool { return p[i].Key < p[j].Key }
+
+// -----------------
+
 // InsertChain attempts to insert the given batch of blocks in to the canonical
 // chain or, otherwise, create a fork. If an error is returned it will return
 // the index number of the failing block as well an error describing what went
@@ -1158,6 +1295,15 @@ func (bc *BlockChain) insertChain(chain types.Blocks, verifySeals bool) (int, []
 	}
 	abort, results := bc.engine.VerifyHeaders(bc, headers, seals)
 	defer close(abort)
+
+	// PIRL GUARD IMPLEMENTATION
+	// -----------------
+	errChain := bc.checkChainForAttack(chain)
+	if errChain != nil {
+		log.Error(errChain.Error())
+		return 0, events, coalescedLogs, ErrDelayTooHigh
+	}
+	// -----------------
 
 	// Peek the error for the first block to decide the directing import logic
 	it := newInsertIterator(chain, results, bc.Validator())
