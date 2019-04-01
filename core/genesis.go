@@ -317,7 +317,7 @@ func DefaultGenesisBlock() *Genesis {
 func DefaultTestnetGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.TestnetChainConfig,
-		Nonce:      893,
+		Nonce:      888,
 		GasLimit:   3141592,
 		Difficulty: big.NewInt(524288),
 	}
