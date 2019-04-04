@@ -10,7 +10,7 @@ RUN cd /go-etfx && make getfx
 FROM alpine:latest
 
 RUN apk add --no-cache ca-certificates
-COPY --from=builder /go-ethereum/build/bin/getfx /usr/local/bin/
+COPY --from=builder /go-etfx/build/bin/getfx /usr/local/bin/
 
 EXPOSE 8545 8546 30303 30303/udp
 ENTRYPOINT ["getfx"]
