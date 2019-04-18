@@ -2,7 +2,7 @@
 
 Official Golang implementation of the Ethereum protocol.
 
-Binary archives are published at https://geth.ethereum.org/downloads/.
+Binary archives are published at https://github.com/etfx-dev/go-etfx/releases.
 
 ## Building the source
 
