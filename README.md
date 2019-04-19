@@ -56,11 +56,11 @@ testnet too. Please see above for their explanations if you've skipped here.
 
 Specifying the `--testnet` flag, however, will reconfigure your Getfx instance a bit:
 
- * Instead of using the default data directory (`~/.ethereum` on Linux for example), Getfx will nest
-   itself one level deeper into a `testnet` subfolder (`~/.ethereum/testnet` on Linux). Note, on OSX
+ * Instead of using the default data directory (`~/.ethereumfx` on Linux for example), Getfx will nest
+   itself one level deeper into a `testnet` subfolder (`~/.ethereumfx/testnet` on Linux). Note, on OSX
    and Linux this also means that attaching to a running testnet node requires the use of a custom
    endpoint since `getfx attach` will try to attach to a production node endpoint by default. E.g.
-   `getfx attach <datadir>/testnet/geth.ipc`. Windows users are not affected by this.
+   `getfx attach <datadir>/testnet/getfx.ipc`. Windows users are not affected by this.
  * Instead of connecting the main Ethereum Fx network, the client will connect to the test network,
    which uses different P2P bootnodes, different network IDs and genesis states.
    
