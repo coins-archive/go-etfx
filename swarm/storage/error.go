@@ -16,7 +16,7 @@
 
 package storage
 
-import "github.com/ethereum/go-ethereum/swarm/chunk"
+import "github.com/etfx-dev/go-etfx/swarm/chunk"
 
 const (
 	ErrInit = iota

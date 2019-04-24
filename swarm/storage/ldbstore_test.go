@@ -27,10 +27,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/swarm/chunk"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/storage/mock/mem"
+	"github.com/etfx-dev/go-etfx/common"
+	"github.com/etfx-dev/go-etfx/swarm/chunk"
+	"github.com/etfx-dev/go-etfx/swarm/log"
+	"github.com/etfx-dev/go-etfx/swarm/storage/mock/mem"
 	ldberrors "github.com/syndtr/goleveldb/leveldb/errors"
 )
 

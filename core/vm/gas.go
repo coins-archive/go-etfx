@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/etfx-dev/go-etfx/params"
 )
 
 // Gas costs

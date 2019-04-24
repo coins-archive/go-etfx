@@ -25,16 +25,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/protocols"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/network/stream/intervals"
-	"github.com/ethereum/go-ethereum/swarm/state"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/etfx-dev/go-etfx/metrics"
+	"github.com/etfx-dev/go-etfx/p2p"
+	"github.com/etfx-dev/go-etfx/p2p/enode"
+	"github.com/etfx-dev/go-etfx/p2p/protocols"
+	"github.com/etfx-dev/go-etfx/rpc"
+	"github.com/etfx-dev/go-etfx/swarm/log"
+	"github.com/etfx-dev/go-etfx/swarm/network"
+	"github.com/etfx-dev/go-etfx/swarm/network/stream/intervals"
+	"github.com/etfx-dev/go-etfx/swarm/state"
+	"github.com/etfx-dev/go-etfx/swarm/storage"
 )
 
 const (

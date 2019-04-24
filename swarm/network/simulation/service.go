@@ -17,9 +17,9 @@
 package simulation
 
 import (
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
+	"github.com/etfx-dev/go-etfx/node"
+	"github.com/etfx-dev/go-etfx/p2p/enode"
+	"github.com/etfx-dev/go-etfx/p2p/simulations/adapters"
 )
 
 // Service returns a single Service by name on a particular node

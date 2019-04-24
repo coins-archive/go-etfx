@@ -21,9 +21,9 @@ package getfx
 import (
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/p2p/discv5"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/etfx-dev/go-etfx/core"
+	"github.com/etfx-dev/go-etfx/p2p/discv5"
+	"github.com/etfx-dev/go-etfx/params"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main Ethereum network. It

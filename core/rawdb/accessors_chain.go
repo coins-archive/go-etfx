@@ -21,11 +21,11 @@ import (
 	"encoding/binary"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/etfx-dev/go-etfx/common"
+	"github.com/etfx-dev/go-etfx/core/types"
+	"github.com/etfx-dev/go-etfx/ethdb"
+	"github.com/etfx-dev/go-etfx/log"
+	"github.com/etfx-dev/go-etfx/rlp"
 )
 
 // ReadCanonicalHash retrieves the hash assigned to a canonical block number.

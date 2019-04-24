@@ -20,8 +20,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
+	"github.com/etfx-dev/go-etfx/node"
+	"github.com/etfx-dev/go-etfx/p2p/simulations/adapters"
 )
 
 // TestServiceBucket tests all bucket functionality using subtests.

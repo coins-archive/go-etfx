@@ -17,9 +17,9 @@
 package rawdb
 
 import (
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/ethdb/leveldb"
-	"github.com/ethereum/go-ethereum/ethdb/memorydb"
+	"github.com/etfx-dev/go-etfx/ethdb"
+	"github.com/etfx-dev/go-etfx/ethdb/leveldb"
+	"github.com/etfx-dev/go-etfx/ethdb/memorydb"
 )
 
 // NewDatabase creates a high level database on top of a given key-value data

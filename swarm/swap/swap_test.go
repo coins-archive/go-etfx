@@ -25,11 +25,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/protocols"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/swarm/state"
+	"github.com/etfx-dev/go-etfx/log"
+	"github.com/etfx-dev/go-etfx/p2p"
+	"github.com/etfx-dev/go-etfx/p2p/protocols"
+	"github.com/etfx-dev/go-etfx/p2p/simulations/adapters"
+	"github.com/etfx-dev/go-etfx/swarm/state"
 	colorable "github.com/mattn/go-colorable"
 )
 

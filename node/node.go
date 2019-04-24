@@ -26,14 +26,14 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/etfx-dev/go-etfx/accounts"
+	"github.com/etfx-dev/go-etfx/core/rawdb"
+	"github.com/etfx-dev/go-etfx/ethdb"
+	"github.com/etfx-dev/go-etfx/event"
+	"github.com/etfx-dev/go-etfx/internal/debug"
+	"github.com/etfx-dev/go-etfx/log"
+	"github.com/etfx-dev/go-etfx/p2p"
+	"github.com/etfx-dev/go-etfx/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

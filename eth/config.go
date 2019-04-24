@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/eth/gasprice"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/etfx-dev/go-etfx/common"
+	"github.com/etfx-dev/go-etfx/common/hexutil"
+	"github.com/etfx-dev/go-etfx/consensus/ethash"
+	"github.com/etfx-dev/go-etfx/core"
+	"github.com/etfx-dev/go-etfx/eth/downloader"
+	"github.com/etfx-dev/go-etfx/eth/gasprice"
+	"github.com/etfx-dev/go-etfx/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

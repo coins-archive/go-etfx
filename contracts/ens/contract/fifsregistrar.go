@@ -8,11 +8,11 @@ import (
 	"strings"
 
 	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	"github.com/etfx-dev/go-etfx/accounts/abi"
+	"github.com/etfx-dev/go-etfx/accounts/abi/bind"
+	"github.com/etfx-dev/go-etfx/common"
+	"github.com/etfx-dev/go-etfx/core/types"
+	"github.com/etfx-dev/go-etfx/event"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

@@ -25,8 +25,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/etfx-dev/go-etfx/accounts/abi"
+	"github.com/etfx-dev/go-etfx/common"
 )
 
 type decodedArgument struct {

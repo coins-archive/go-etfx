@@ -21,8 +21,8 @@ package getfx
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/etfx-dev/go-etfx/core/types"
+	"github.com/etfx-dev/go-etfx/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

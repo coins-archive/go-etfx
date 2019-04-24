@@ -27,12 +27,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"github.com/etfx-dev/go-etfx/log"
+	"github.com/etfx-dev/go-etfx/metrics"
+	"github.com/etfx-dev/go-etfx/rpc"
+	"github.com/etfx-dev/go-etfx/swarm/api"
+	"github.com/etfx-dev/go-etfx/swarm/storage"
+	"github.com/etfx-dev/go-etfx/swarm/testutil"
 	"github.com/pborman/uuid"
 
 	cli "gopkg.in/urfave/cli.v1"

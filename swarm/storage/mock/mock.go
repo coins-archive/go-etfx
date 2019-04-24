@@ -36,7 +36,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/etfx-dev/go-etfx/common"
 )
 
 const (

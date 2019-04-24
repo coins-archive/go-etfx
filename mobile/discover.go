@@ -22,7 +22,7 @@ package getfx
 import (
 	"errors"
 
-	"github.com/ethereum/go-ethereum/p2p/discv5"
+	"github.com/etfx-dev/go-etfx/p2p/discv5"
 )
 
 // Enode represents a host on the network.

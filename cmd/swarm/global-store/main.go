@@ -19,7 +19,7 @@ package main
 import (
 	"os"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/etfx-dev/go-etfx/log"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

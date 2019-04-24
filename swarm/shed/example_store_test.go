@@ -26,8 +26,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/ethereum/go-ethereum/swarm/shed"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/etfx-dev/go-etfx/swarm/shed"
+	"github.com/etfx-dev/go-etfx/swarm/storage"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

@@ -30,7 +30,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/etfx-dev/go-etfx/metrics"
 )
 
 var (

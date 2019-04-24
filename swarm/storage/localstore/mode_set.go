@@ -17,7 +17,7 @@
 package localstore
 
 import (
-	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/etfx-dev/go-etfx/swarm/chunk"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

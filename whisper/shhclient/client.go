@@ -20,9 +20,9 @@ import (
 	"context"
 
 	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/rpc"
-	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
+	"github.com/etfx-dev/go-etfx/common/hexutil"
+	"github.com/etfx-dev/go-etfx/rpc"
+	whisper "github.com/etfx-dev/go-etfx/whisper/whisperv6"
 )
 
 // Client defines typed wrappers for the Whisper v6 RPC API.

@@ -23,7 +23,7 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/etfx-dev/go-etfx/common"
 )
 
 // Verify that Client implements the ethereum interfaces.

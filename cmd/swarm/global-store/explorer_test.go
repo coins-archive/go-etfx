@@ -23,9 +23,9 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/swarm/storage/mock/explorer"
-	mockRPC "github.com/ethereum/go-ethereum/swarm/storage/mock/rpc"
+	"github.com/etfx-dev/go-etfx/common"
+	"github.com/etfx-dev/go-etfx/swarm/storage/mock/explorer"
+	mockRPC "github.com/etfx-dev/go-etfx/swarm/storage/mock/rpc"
 )
 
 // TestExplorer validates basic chunk explorer functionality by storing

@@ -19,7 +19,7 @@ package network
 import (
 	"testing"
 
-	p2ptest "github.com/ethereum/go-ethereum/p2p/testing"
+	p2ptest "github.com/etfx-dev/go-etfx/p2p/testing"
 )
 
 /***
